@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #141414;
+  font-family: "DM Sans", sans-serif;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* LOADER STYLES */
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.loader-wrapper.hidden {
+  display: none;
+}
+
+.loader-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1em;
+}
+
+.loader-container .col {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.col .item {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  background: gray;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.c-1,
+.c-3,
+.c-5 {
+  top: 100%;
+}
+
+.c-1 .item,
+.c-3 .item,
+.c-5 .item {
+  top: 100%;
+}
+
+.c-2,
+.c-4 {
+  top: -100%;
+}
+
+.c-2 .item,
+.c-4 .item {
+  top: -100%;
+}
+
+.loader-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.loader-nav {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
+  z-index: 9999;
+  user-select: none;
+}
+
+.loader-nav-item {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.loader-nav-item a {
+  cursor: pointer;
+  top: 20px;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.loader-nav-item a.active {
+  opacity: 1;
+}
+
+.loader-hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.loader-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 60px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.loader-title p {
+  font-family: "DM Sans", sans-serif;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1;
+  text-transform: uppercase;
+}
+
+.loader-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.loader-preview {
+  position: absolute;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  bottom: 2em;
+  right: 2em;
+  width: 35%;
+  height: 50px;
+  display: flex;
+  gap: 1em;
+}
+
+.loader-preview img {
+  position: relative;
+  top: 100px;
+  width: 80px;
+  height: 50px;
+  object-position: center center;
+}
+
+.loader-slide-num {
+  margin: 3em 0;
+  text-align: center;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.loader-slide-num p {
+  position: relative;
+  top: 30px;
+  font-family: "DM Sans", sans-serif;
+}
+
+/* MAIN SLIDER STYLES */
+.slider {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slider.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-images {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-position: center center;
+}
+
+.img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-counter {
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translate(-50%);
+  height: 24px;
+  display: flex;
+  gap: 0.5rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.slider-counter > div {
+  flex: 1;
+}
+
+.slider-counter p {
+  line-height: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.counter {
+  position: relative;
+  top: 0px;
+  will-change: transform;
+}
+
+.slider-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 64px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.slider-title-wrapper {
+  position: relative;
+  width: 100%;
+  top: 0px;
+  text-align: center;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.slider-title-wrapper p {
+  font-size: 60px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  line-height: 59px;
+  color: #fff;
+  letter-spacing: 1;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.slider-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider-indicator p {
+  position: relative;
+  font-family: "DM Sans", sans-serif;
+  font-size: 45px;
+  font-weight: 300;
+  color: #fff;
+  will-change: transform;
+  user-select: none;
+}
+
+.slider-preview {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+  width: 35%;
+  height: 50px;
+  display: flex;
+  gap: 1em;
+}
+
+.preview {
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+}
+
+.preview::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+.preview.active:after {
+  background: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 900px) {
+  .loader-slide-num {
+    text-align: center;
+    padding-left: 2em;
+    margin-bottom: 2em;
+  }
+  .loader-title P {
+    font-size: 59px;
+    text-align: center;
+    padding: 0px 15px;
+  }
+  .loader-preview {
+    width: 90%;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 80px;
+    gap: 0.5em;
+    justify-content: center;
+    object-position: center center;
+  }
+  .loader-preview.preview{
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-title-wrapper p {
+    font-size: 40px;
+    padding: 0px 15px;
+    text-align: center;
+  }
+  .slider-title {
+    height: 65px;
+  }
+  .loader-title p {
+    font-size: 40px;
+    text-align: center;
+  }
+  .slider-preview {
+    width: 90%;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+    gap: 0.5em;
+    justify-content: center;
+    object-position: center center;
+  }
+  .slider-preview .preview {
+    height: 40px;
+  }
+  .slider-counter {
+    bottom: 45px;
+    justify-content: center;
+  }
+  .slider-indicator {
+    width: 95%;
+  }
+  .slider-indicator p {
+    font-size: 50px;
+  }
+}
