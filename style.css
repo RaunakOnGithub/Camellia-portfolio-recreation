@@ -12,12 +12,17 @@ body {
   overflow: hidden;
   background-color: #141414;
   font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+    image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 /* LOADER STYLES */
@@ -50,6 +55,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 1em;
+    will-change: transform;
 }
 
 .col .item {
@@ -59,6 +65,7 @@ img {
   background: gray;
   overflow: hidden;
   border-radius: 4px;
+    will-change: transform;
 }
 
 .c-1,
@@ -220,6 +227,7 @@ img {
   position: absolute;
   width: 100%;
   height: 100%;
+    will-change: transform;
 }
 
 .slider-counter {
@@ -267,6 +275,7 @@ img {
   text-align: center;
   will-change: transform;
   cursor: pointer;
+    will-change: transform;
 }
 
 .slider-title-wrapper p {
@@ -394,3 +403,4 @@ img {
     font-size: 50px;
   }
 }
+
