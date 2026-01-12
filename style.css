@@ -21,7 +21,6 @@ img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  image-rendering: crisp-edges;
 }
 
 /* LOADER STYLES */
@@ -54,7 +53,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 1em;
-    will-change: transform;
+  
 }
 
 .col .item {
@@ -64,7 +63,7 @@ img {
   background: gray;
   overflow: hidden;
   border-radius: 4px;
-    will-change: transform;
+    
 }
 
 .c-1,
@@ -273,7 +272,7 @@ img {
   text-align: center;
   will-change: transform;
   cursor: pointer;
-    will-change: transform;
+ 
 }
 
 .slider-title-wrapper p {
@@ -401,5 +400,6 @@ img {
     font-size: 50px;
   }
 }
+
 
 
